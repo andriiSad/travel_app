@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/welcome_page.dart';
 
 void main() {
   runApp(
@@ -7,7 +8,7 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const WelcomePage(),
       debugShowCheckedModeBanner: false,
     ),
   );
