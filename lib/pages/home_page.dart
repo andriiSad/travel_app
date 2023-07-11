@@ -11,6 +11,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  var images = {
+    'balloning.png': 'Balloning',
+    'hiking.png': 'Hiking',
+    'kayaking.png': 'Kayaking',
+    'snorkling.png': 'Snorkling',
+  };
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
@@ -45,7 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           //discover text
           Container(
@@ -55,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: AppLargeText(text: 'Discover'),
           ),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           //tabbar
           Container(
@@ -93,7 +99,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Container(
             padding: const EdgeInsets.only(left: 20),
             height: 300,
-            width: 200,
+            width: double.maxFinite,
             child: TabBarView(
               controller: tabController,
               children: [
@@ -140,28 +146,41 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Container(
+            height: 120,
+            width: double.maxFinite,
             margin: const EdgeInsets.only(left: 20),
             child: ListView.builder(
               itemCount: 4,
+              scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                return Column(
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      margin: const EdgeInsets.only(right: 50),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                        image: const DecorationImage(
-                            image: AssetImage('img/mountain.jpeg'),
-                            fit: BoxFit.cover),
+                return Container(
+                  margin: const EdgeInsets.only(right: 30),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'img/${images.keys.elementAt(index)}'),
+                              fit: BoxFit.cover),
+                        ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      AppText(
+                        text: images.values.elementAt(index),
+                        color: AppColors.textColor2,
+                      ),
+                    ],
+                  ),
                 );
               },
             ),

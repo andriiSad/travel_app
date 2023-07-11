@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/pages/nav_pages/main_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel_app/cubit/app_cubit_logics.dart';
+import 'package:travel_app/cubit/app_cubits.dart';
+import 'package:travel_app/services/data_services.dart';
 
 void main() {
   runApp(
@@ -8,7 +11,12 @@ void main() {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainPage(),
+      home: BlocProvider<AppCubits>(
+        create: (_) => AppCubits(
+          data: DataServices(),
+        ),
+        child: const AppCubitLogics(),
+      ),
       debugShowCheckedModeBanner: false,
     ),
   );
