@@ -27,4 +27,8 @@ class DataModel {
       location: json['location'],
     );
   }
+  @override
+  String toString() {
+    return 'DataModel(name: $name, img: $img, price: $price, people: $people, stars: $stars, description: $description, location: $location)';
+  }
 }
