@@ -8,7 +8,7 @@ class AppCubits extends Cubit<CubitStates> {
     emit(WelcomeState());
   }
   final DataServices data;
-  late final places;
+  late final List<DataModel> places;
 
   void getData() async {
     try {

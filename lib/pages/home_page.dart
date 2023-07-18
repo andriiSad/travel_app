@@ -71,35 +71,33 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   height: 20,
                 ),
                 //tabbar
-                Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: TabBar(
-                      controller: tabController,
-                      labelPadding: const EdgeInsets.only(
-                        left: 20,
-                        right: 20,
-                      ),
-                      labelColor: Colors.black,
-                      unselectedLabelColor: Colors.grey,
-                      isScrollable: true,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      indicator: CircleTabIndicator(
-                        color: AppColors.mainColor,
-                        radius: 4,
-                      ),
-                      tabs: const [
-                        Tab(
-                          text: 'Places',
-                        ),
-                        Tab(
-                          text: 'Inspirations',
-                        ),
-                        Tab(
-                          text: 'Emotions',
-                        ),
-                      ],
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TabBar(
+                    controller: tabController,
+                    labelPadding: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
                     ),
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.grey,
+                    isScrollable: true,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicator: CircleTabIndicator(
+                      color: AppColors.mainColor,
+                      radius: 4,
+                    ),
+                    tabs: const [
+                      Tab(
+                        text: 'Places',
+                      ),
+                      Tab(
+                        text: 'Inspirations',
+                      ),
+                      Tab(
+                        text: 'Emotions',
+                      ),
+                    ],
                   ),
                 ),
                 //tabbar view
